@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SMK Negeri Buton Utara | Modern & Berprestasi</title>
+    <!-- Google Fonts + Font Awesome CDN -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafc;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* container utility */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* modern navbar */
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 16px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: linear-gradient(135deg, #0f3b5f, #1b6b8f);
+            width: 46px;
+            height: 46px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 26px;
+            box-shadow: 0 8px 14px -6px rgba(0, 80, 100, 0.2);
+        }
+
+        .logo-text h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            background: linear-gradient(130deg, #0f3b5f, #1f7a8c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .logo-text p {
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #4b5563;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #1e293b;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: #1f7a8c;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #0f3b5f;
+        }
+
+        /* Hero Section - Interaktif */
+        .hero {
+            background: linear-gradient(135deg, #eef5f9 0%, #e0edf2 100%);
+            padding: 70px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1.2;
+        }
+
+        .hero-badge {
+            background: rgba(31, 122, 140, 0.15);
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1f6e7e;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #0a2e44;
+            margin-bottom: 20px;
+        }
+
+        .hero-highlight {
+            color: #1f7a8c;
+            border-bottom: 3px solid #1f7a8c;
+            display: inline-block;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            max-width: 550px;
+            margin-bottom: 32px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #0f3b5f;
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: #1b6b8f;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #0f3b5f;
+            color: #0f3b5f;
+            padding: 10px 26px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: #0f3b5f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            flex: 1;
+            background: url('https://placehold.co/600x500/f0f7fa/1f7a8c?text=SMK+Hebat') no-repeat center center/cover;
+            border-radius: 32px;
+            min-height: 320px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+            background-size: cover;
+            transition: transform 0.4s ease;
+        }
+        /* efek interaktif hover pada visual */
+        .hero-visual:hover {
+            transform: scale(1.01);
+        }
+
+        /* section umum */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #0a2e44;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #4b5563;
+            max-width: 650px;
+            margin: 0 auto 48px auto;
+            font-size: 1.05rem;
+        }
+
+        /* kartu jurusan */
+        .jurusan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card-jurusan {
+            background: white;
+            border-radius: 28px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .card-jurusan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 24px 36px -12px rgba(31, 122, 140, 0.2);
+        }
+
+        .icon-jurusan {
+            font-size: 3rem;
+            background: #eef2f6;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30px;
+            margin: 0 auto 20px;
+            color: #1f7a8c;
+        }
+
+        .card-jurusan h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* prestasi slider / interaktif */
+        .prestasi-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 28px;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 20px;
+            cursor: grab;
+        }
+        .prestasi-slider:active {
+            cursor: grabbing;
+        }
+        .prestasi-card {
+            flex: 0 0 300px;
+            background: white;
+            border-radius: 28px;
+            padding: 28px;
+            scroll-snap-align: start;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: 0.2s;
+            border: 1px solid #e2edf2;
+        }
+        .prestasi-card i {
+            font-size: 2.2rem;
+            color: #f4b942;
+            margin-bottom: 16px;
+        }
+        .prestasi-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        /* Galeri foto mini grid */
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+        .galeri-item {
+            border-radius: 24px;
+            overflow: hidden;
+            height: 220px;
+            background: #cbd5e1;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .galeri-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+        .galeri-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* kontak + peta */
+        .kontak-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            background: white;
+            border-radius: 48px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.05);
+        }
+        .kontak-info {
+            flex: 1;
+            padding: 40px;
+        }
+        .kontak-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+        }
+        .info-item {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .info-item i {
+            font-size: 1.6rem;
+            color: #1f7a8c;
+            width: 40px;
+        }
+        .map-placeholder {
+            flex: 1;
+            background: #d9e2e8;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: #2c3e50;
+        }
+
+        footer {
+            background: #0a2e44;
+            color: #cbd5e6;
+            padding: 48px 0 24px;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 32px;
+        }
+        .footer-col p, .footer-col i {
+            color: #b9d0e0;
+        }
+        .social-icons a {
+            color: white;
+            margin-right: 20px;
+            font-size: 1.4rem;
+            transition: 0.2s;
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #1f5068;
+            padding-top: 24px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 20px 0;
+                gap: 18px;
+                margin-top: 16px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        @media (max-width: 680px) {
+            .container {
+                padding: 0 20px;
+            }
+            .btn-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        /* efek interaktif tambahan */
+        .btn-primary, .btn-outline, .card-jurusan, .prestasi-card {
+            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+        ::selection {
+            background: #1f7a8c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo-area">
+            <div class="logo-icon">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="logo-text">
+                <h1>SMK Negeri Buton Utara</h1>
+                <p>Unggul | Terampil | Berkarakter</p>
+            </div>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#jurusan">Jurusan</a></li>
+            <li><a href="#prestasi">Prestasi</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-school"></i> SMK Pusat Keunggulan</div>
+                <h1>Membangun Generasi <span class="hero-highlight">Teknologi & Inovasi</span> untuk Buton Utara</h1>
+                <p class="hero-desc">Berbasis kompetensi, siap kerja, dan berjiwa wirausaha. Didukung fasilitas modern serta tenaga pengajar profesional.</p>
+                <div class="btn-group">
+                    <a href="#" class="btn-primary"><i class="fas fa-arrow-right"></i> PPDB 2025</a>
+                    <a href="#jurusan" class="btn-outline"><i class="fas fa-flask"></i> Eksplor Jurusan</a>
+                </div>
+            </div>
+            <div class="hero-visual" style="background-image: linear-gradient(125deg, #a2d0da40, #7fb7c440), url('https://placehold.co/700x500/2c7a7b/ffffff?text=Kampus+SMK+Hebat'); background-blend-mode: overlay;"></div>
+        </div>
+    </section>
+
+    <!-- Jurusan / Kompetensi Keahlian -->
+    <section id="jurusan">
+        <div class="container">
+            <h2 class="section-title">Kompetensi Keahlian</h2>
+            <p class="section-sub">Pilih program unggulan sesuai minat dan bakatmu, dibekali sertifikasi industri</p>
+            <div class="jurusan-grid">
+                <div class="card-jurusan">
+                    <div class="icon-jurusan"><i class="fas fa-code"></i></div>
+                    <h3>RPL</h3>
+                    <p>Rekayasa Perangkat Lunak – Kembangkan aplikasi, web & game developer handal.</p>
+                </div>
+                <div class="card-jurusan">
+                    <div class="icon-jurusan"><i class="fas fa-network-wired"></i></div>
+                    <h3>TKJ</h3>
+                    <p>Teknik Komputer Jaringan – Ahli jaringan, keamanan siber & infrastruktur IT.</p>
+                </div>
+                <div class="card-jurusan">
+                    <div class="icon-jurusan"><i class="fas fa-car"></i></div>
+                    <h3>TBSM</h3>
+                    <p>Teknik Bisnis Sepeda Motor – Spesialis perawatan & bisnis otomotif modern.</p>
+                </div>
+                <div class="card-jurusan">
+                    <div class="icon-jurusan"><i class="fas fa-utensils"></i></div>
+                    <h3>Tata Boga</h3>
+                    <p>Kuliner kreatif, pastry & manajemen restoran berbasis industri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prestasi Interaktif (slider geser) -->
+    <section id="prestasi" style="background: #f1f7fa;">
+        <div class="container">
+            <h2 class="section-title">✨ Prestasi Membanggakan</h2>
+            <p class="section-sub">Goresan emas siswa SMK Negeri Buton Utara di kancah regional & nasional</p>
+            <div class="prestasi-slider" id="prestasiSlider">
+                <div class="prestasi-card">
+                    <i class="fas fa-trophy"></i>
+                    <h4>Juara 1 LKS Web Tech</h4>
+                    <p>Lomba Kompetensi Siswa tingkat Provinsi Sultra 2024</p>
+                </div>
+                <div class="prestasi-card">
+                    <i class="fas fa-medal"></i>
+                    <h4>Innovation Fair</h4>
+                    <p>Aplikasi SIMPAN DESA raih perak nasional bidang IT</p>
+                </div>
+                <div class="prestasi-card">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <h4>Guru Berprestasi</h4>
+                    <p>Tenaga pendidik terbaik inovasi pembelajaran digital</p>
+                </div>
+                <div class="prestasi-card">
+                    <i class="fas fa-robot"></i>
+                    <h4>Robotic Competition</h4>
+                    <p>Finalis KRI 2024 kategori Line Follower</p>
+                </div>
+                <div class="prestasi-card">
+                    <i class="fas fa-globe"></i>
+                    <h4>Hackathon Pelajar</h4>
+                    <p>Juara favorit UI/UX se-Indonesia Timur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri kegiatan -->
+    <section id="galeri">
+        <div class="container">
+            <h2 class="section-title">Galeri Kegiatan</h2>
+            <p class="section-sub">Momen belajar, praktik industri, dan ekskul penuh inspirasi</p>
+            <div class="galeri-grid">
+                <div class="galeri-item"><img src="https://placehold.co/400x300/2c7a7b/ffffff?text=Praktikum+RPL" alt="praktikum coding"></div>
+                <div class="galeri-item"><img src="https://placehold.co/400x300/3b82f6/ffffff?text=Workshop+AI" alt="workshop AI"></div>
+                <div class="galeri-item"><img src="https://placehold.co/400x300/f97316/ffffff?text=Kompetisi+Robotik" alt="kompetisi robot"></div>
+                <div class="galeri-item"><img src="https://placehold.co/400x300/10b981/ffffff?text=Bakti+Sosial" alt="bakti sosial"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak & Peta Interaktif -->
+    <section id="kontak">
+        <div class="container">
+            <div class="kontak-wrapper">
+                <div class="kontak-info">
+                    <h3><i class="fas fa-map-pin"></i> Hubungi Kami</h3>
+                    <div class="info-item">
+                        <i class="fas fa-location-dot"></i>
+                        <p>Jl. Poros Pendidikan No. 17, Kec. Bonegunu, Kab. Buton Utara, Sulawesi Tenggara</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+62 852 1234 5678</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@smknbutonutara.sch.id</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <p>Senin - Jum'at : 07.30 - 15.30 WITA</p>
+                    </div>
+                    <div class="social-icons" style="margin-top: 28px;">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 12px; color:#1f7a8c;"></i>
+                    <p><strong>Lokasi Strategis</strong><br>Dekat pusat kota & mudah diakses</p>
+                    <small>(interaktif peta google maps segera)</small>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3 style="color: white; margin-bottom: 12px;">SMK Negeri Buton Utara</h3>
+                <p>Mencetak lulusan berkarakter, kompeten, dan siap bersaing di era digital serta industri 4.0.</p>
+            </div>
+            <div class="footer-col">
+                <h4 style="color: white;">Tautan Penting</h4>
+                <p><a href="#" style="color:#b9d0e0; text-decoration: none;">▶ PPDB Online</a></p>
+                <p><a href="#" style="color:#b9d0e0; text-decoration: none;">▶ Kalender Akademik</a></p>
+                <p><a href="#" style="color:#b9d0e0; text-decoration: none;">▶ E-Learning</a></p>
+            </div>
+            <div class="footer-col">
+                <h4 style="color: white;">Ikuti Kami</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 SMK Negeri Buton Utara - Dinas Pendidikan Provinsi Sulawesi Tenggara. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle interaktif
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Smooth scroll untuk navigasi
+    document.querySelectorAll('.nav-links a, .btn-primary, .btn-outline').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+            if(hash && hash.startsWith('#') && hash !== '#') {
+                e.preventDefault();
+                const targetId = hash.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // tutup menu mobile jika terbuka
+                    if(navLinks.classList.contains('active')) navLinks.classList.remove('active');
+                }
+            } else if(hash === '#') {
+                // jika link kosong anchor do nothing
+                if(this.classList.contains('btn-primary')) e.preventDefault();
+            }
+        });
+    });
+
+    // Interaktif slider prestasi: drag to scroll (geser mouse)
+    const slider = document.getElementById('prestasiSlider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    if(slider) {
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+        slider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            slider.scrollLeft = scrollLeft - walk;
+        });
+        slider.style.cursor = 'grab';
+    }
+
+    // Animasi sederhana saat scroll untuk card (interaktif)
+    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -20px 0px" };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0px)';
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.card-jurusan, .prestasi-card, .galeri-item, .kontak-wrapper').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.4s ease';
+        observer.observe(el);
+    });
+    // set initial visible for hero
+    document.querySelectorAll('.hero-content, .hero-visual').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+    });
+    // small adjust untuk gambar placeholder & event tambahan
+    const heroImgDiv = document.querySelector('.hero-visual');
+    if(heroImgDiv) {
+        heroImgDiv.style.backgroundImage = "url('https://placehold.co/700x500/197a8c/f0f9ff?text=Kampus+Digital+SMK')";
+        heroImgDiv.style.backgroundSize = "cover";
+    }
+    // Untuk gambar galeri yang lebih hidup, kita bisa placeholder
+    const galImgs = document.querySelectorAll('.galeri-item img');
+    const imgSources = [
+        'https://placehold.co/600x400/138f8c/ffffff?text=Belajar+Programming',
+        'https://placehold.co/600x400/0f5b7f/ffffff?text=Praktik+Jaringan',
+        'https://placehold.co/600x400/23a68a/ffffff?text=Lomba+Inovasi',
+        'https://placehold.co/600x400/e67e22/ffffff?text=Ekskul+Pramuka'
+    ];
+    galImgs.forEach((img, idx) => {
+        if(img.src.includes('placehold')) {
+            img.src = imgSources[idx % imgSources.length];
+        }
+    });
+</script>
+</body>
+</html>
